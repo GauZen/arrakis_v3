@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 
+
 @Entity
 @Table(name = "Security")
 public class Security
