@@ -4,7 +4,7 @@ package com.db.grad.javaapi.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "book_bser")
+@Table(name = "book_user")
 public class BookUser {
     private long book_ID;
     private long user_ID;
