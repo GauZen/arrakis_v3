@@ -26,12 +26,13 @@ const BondDetail = (props) => {
         startDate = maturityDate;
         endDate = currentDate;
     }
-
+    
 
     let businessDayNr = getBusinessDayCount(startDate, endDate);
     if (businessDayNr <= 6) {
         return (
             <div>
+                <p>show: {props.status.showBondStatus}</p>
                 <p id="blue-alias">ID: {props.info.id}</p>
                 <p className="green-class">Face Value: {props.info.face_value}</p>
                 <p className="green-class">Trade Currency: {props.info.trade_CURRENCY}</p>
