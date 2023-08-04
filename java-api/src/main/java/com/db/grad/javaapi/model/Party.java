@@ -23,19 +23,18 @@ public class Party {
         this.id = id;
     }
 
-    @Column(name = "ISSUER_NAME", nullable = false)
-    public String getISSUER_NAME() {
-        return ISSUER_NAME();
+    @Column(name = "ISSUER_NAME")
+    public String getISSUER_NAME() {return ISSUER_NAME;
     }
     public void setISSUER_NAME(String ISSUER_NAME) { this.ISSUER_NAME = ISSUER_NAME;}
 
 
-    @Column(name = "TYPE", nullable = false)
-    public String getTYPE(String TYPE) {return TYPE();}
+    @Column(name = "TYPE")
+    public String getTYPE(String TYPE) {return TYPE;}
     public void setTYPE(String TYPE) { this.TYPE = TYPE;}
 
-    @Column(name = "BOND_HOLDER", nullable = false)
-    public String getBOND_HOLDER() {return BOND_HOLDER();}
+    @Column(name = "BOND_HOLDER")
+    public String getBOND_HOLDER() {return BOND_HOLDER;}
     public void setBOND_HOLDER(String BOND_HOLDER){this.BOND_HOLDER = BOND_HOLDER;}
 
 
