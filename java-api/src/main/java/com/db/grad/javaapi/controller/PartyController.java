@@ -42,7 +42,7 @@ public class PartyController {
     }
 
     @PutMapping("/Party/{id}")
-    public ResponseEntity <Party> updateBonds(@PathVariable(value = "id") Long id,
+    public ResponseEntity <Party> updateParty(@PathVariable(value = "id") Long id,
                                               @Valid @RequestBody Party Party) throws ResourceNotFoundException {
 
         final Party updatedParty = PartyService.updatePartyDetails(Party);

@@ -3,7 +3,7 @@ package com.db.grad.javaapi.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Party_details")
+@Table(name = "Partydetails")
 public class Party {
 
     @Id
