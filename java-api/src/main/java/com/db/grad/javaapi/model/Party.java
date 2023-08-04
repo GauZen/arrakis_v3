@@ -23,6 +23,9 @@ public class Party {
         this.id = id;
     }
 
+    @OneToOne(mappedBy = "PARTY_ID", cascade = CascadeType.ALL)
+    private Trade Trade;
+
     @Column(name = "ISSUER_NAME")
     public String getISSUER_NAME() {return ISSUER_NAME;
     }

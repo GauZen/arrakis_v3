@@ -14,6 +14,8 @@ public class Security
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @OneToOne(mappedBy = "SECURE_ID", cascade = CascadeType.ALL)
+    private Trade Trade;
     private String TRADE_CURRENCY;
     private long FACE_VALUE;
     private Date BOND_MATURITY_DATE;

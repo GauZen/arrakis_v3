@@ -37,32 +37,20 @@ public class Trade {
     public void setId(long id) {
         this.id = id;
     }
-    @Column(name = "BOOK_ID", nullable = false)
+//    @Column(name = "BOOK_ID", nullable = false)
 
-    public long getBOOK_ID() {
-        return BOOK_ID;
-    }
+    @OneToOne
+    @JoinColumn(name = "BOOK_ID")
+    private Bond BOND_ID;
 
-    public void setBOOK_ID(long BOOK_ID) {
-        this.BOOK_ID = BOOK_ID;
-    }
+    @OneToOne
+    @JoinColumn(name = "SECURE_ID")
+    private Security SECURE_ID;
 
-    @Column(name = "SECURITY_ID", nullable = false)
-    public long getSECURITY_ID() {
-        return SECURITY_ID;
-    }
+    @OneToOne
+    @JoinColumn(name = "PARTY_ID")
+    private Party PARTY_ID;
 
-    public void setSECURITY_ID(long SECURITY_ID) {
-        this.SECURITY_ID = SECURITY_ID;
-    }
-    @Column(name = "PARTYDETAILS_ID", nullable = false)
-    public long getPARTYDETAILS_ID() {
-        return PARTYDETAILS_ID;
-    }
-
-    public void setPARTYDETAILS_ID(long PARTYDETAILS_ID) {
-        this.PARTYDETAILS_ID = PARTYDETAILS_ID;
-    }
     @Column(name = "BOOK_NAME", nullable = false)
     public String getBOOK_NAME() {
         return BOOK_NAME;
