@@ -11,15 +11,15 @@ const BondDetail = (props) => {
         month = '0' + month;
     }
     let year = newDate.getFullYear();
-    let currentDate = year +"-"+ month +"-" + day;
-    let maturityDateArray = props.info.bond_maturity_date.split("/");
-    let maturityDay = maturityDateArray[0];
+    let currentDate = year + "-" + month + "-" + day;
+    let maturityDate = props.info.bond_MATURITY_DATE;
+    let maturityDateArray = props.info.bond_MATURITY_DATE.split("-");
+    let maturityYear = maturityDateArray[0];
     let maturityMonth = maturityDateArray[1];
-    let maturityYear = maturityDateArray[2];
-    let maturityDate = maturityYear +"-"+ maturityMonth +"-" + maturityDay;
+    let maturityDay = maturityDateArray[2];
     let startDate = null;
     let endDate = null;
-    if(maturityYear >= year && maturityMonth >= month && maturityDay >= day){
+    if (maturityYear >= year && maturityMonth >= month && maturityDay >= day) {
         startDate = currentDate;
         endDate = maturityDate;
     } else {
@@ -27,28 +27,28 @@ const BondDetail = (props) => {
         endDate = currentDate;
     }
 
+
     let businessDayNr = getBusinessDayCount(startDate, endDate);
-    console.log(businessDayNr);
-    if(businessDayNr <= 6){
+    if (businessDayNr <= 6) {
         return (
             <div>
                 <p id="blue-alias">ID: {props.info.id}</p>
-                <p className="green-class">Bond Currency: {props.info.bond_currency}</p>
                 <p className="green-class">Face Value: {props.info.face_value}</p>
-                <p className="green-class">Bond Maturity Date: {props.info.bond_maturity_date}</p>
+                <p className="green-class">Trade Currency: {props.info.trade_CURRENCY}</p>
                 <p className="green-class">CUSIP: {props.info.cusip}</p>
-                <p className="green-class">ISIN: {props.info.isin}</p>
+                <p className="green-class">Bond Maturity Date: {props.info.bond_MATURITY_DATE}</p>
+
             </div>
         )
     }
-   
+
 }
 
 function getBusinessDayCount(startDate, endDate) {
     let current = new Date(startDate);
     let end = new Date(endDate);
     let businessDays = 0;
-    while(current <= end) {
+    while (current <= end) {
         // Check if the current day is not a weekend (Saturday or Sunday)
         if (current.getDay() !== 0 && current.getDay() !== 6) {
             businessDays++;
