@@ -1,8 +1,13 @@
 import React from "react";
-import { Pets } from "./components/pets/Pets";
+import AllBonds from "./components/bonds/AllBonds";
+//import { Pets } from "./components/pets/Pets";
 
-const App = () => {
-  return <Pets />;
-};
+function App(){
+  return(
+    <AllBonds/>
+  );
+  //return <Pets />;
+}
+
 
 export default App;
