@@ -39,17 +39,17 @@ public class Trade {
     }
 //    @Column(name = "BOOK_ID", nullable = false)
 
-    @OneToOne
-    @JoinColumn(name = "BOOK_ID")
-    private Bond BOND_ID;
-
-    @OneToOne
-    @JoinColumn(name = "SECURE_ID")
-    private Security SECURE_ID;
-
-    @OneToOne
-    @JoinColumn(name = "PARTY_ID")
-    private Party PARTY_ID;
+//    @OneToOne
+//    @JoinColumn(name = "BOOK_ID")
+//    private Bond BOND_ID;
+//
+//    @OneToOne
+//    @JoinColumn(name = "SECURE_ID")
+//    private Security SECURE_ID;
+//
+//    @OneToOne
+//    @JoinColumn(name = "PARTY_ID")
+//    private Party PARTY_ID;
 
     @Column(name = "BOOK_NAME", nullable = false)
     public String getBOOK_NAME() {
