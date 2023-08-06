@@ -1,20 +1,29 @@
 package com.db.grad.javaapi.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "UserT")
 public class UserT {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String NAME;
     private String EMAIL;
-    private String ROLE;
     private String PASSWORD;
+
+//    @ManyToMany
+//    @JoinTable(
+//            name = "usert_role",
+//            joinColumns = @JoinColumn(name = "usert_id"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id"))
+//    public Set<Role> roles = new HashSet<>();
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -26,7 +35,7 @@ public class UserT {
         this.id = id;
     }
 
-    @Column(name = "Name", nullable = false)
+    @Column(name = "name", nullable = false)
     public String getName() {
         return NAME;
     }
@@ -35,7 +44,7 @@ public class UserT {
         this.NAME = NAME;
     }
 
-    @Column(name = "Email", nullable = false)
+    @Column(name = "email", nullable = false)
     public String getEmail() {
         return EMAIL;
     }
@@ -43,14 +52,16 @@ public class UserT {
     public void setEmail(String EMAIL) {
         this.EMAIL = EMAIL;
     }
-    @Column(name = "Role", nullable = false)
-    public String getRole() {
-        return ROLE;
-    }
 
-    public void setRole(String ROLE) {
-        this.ROLE = ROLE;
-    }
+
+//    @Column(name = "role", nullable = false)
+//    public Set<Role> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(Set<Role> roles) {
+//        this.roles = roles;
+//    }
 
     @Column(name = "Password", nullable = false)
     public String getPassword() {
@@ -61,4 +72,13 @@ public class UserT {
         this.PASSWORD = PASSWORD;
     }
 
+    public UserT( String NAME, String EMAIL, String PASSWORD, Set<Role> ROLES) {
+        this.NAME = NAME;
+        this.EMAIL = EMAIL;
+        this.PASSWORD = PASSWORD;
+      //  this.roles = ROLES;
+    }
+
+    public UserT() {
+    }
 }

@@ -11,7 +11,7 @@ import java.sql.Date;
 public class Bond
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String TRADE_CURRENCY;
     private long FACE_VALUE;

@@ -30,3 +30,22 @@ CUSIP, ISIN) VALUES
 ('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31'),
 ('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31'),
 ('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31');
+
+
+INSERT INTO role (name) VALUES ('USER');
+INSERT INTO role (name) VALUES ('CREATOR');
+INSERT INTO role (name) VALUES ('EDITOR');
+INSERT INTO role (name) VALUES ('ADMIN');
+
+INSERT INTO UserT (name, email, password) VALUES ('nilesh', 'nilesh@gmail.com','test');
+INSERT INTO UserT (name, email, password) VALUES ('mahesh', 'mahesh@gmail.com','test');
+INSERT INTO UserT (name, email, password) VALUES ('suresh', 'suresh@gmail.com','test');
+INSERT INTO UserT (name, email, password) VALUES ('ramesh', 'ramesh@gmail.com','test');
+INSERT INTO UserT (name, email, password) VALUES ('admin', 'admin@gmail.com','test');
+
+INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (1, 1);
+INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (2, 2);
+INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (3, 3);
+INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (4, 2);
+INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (4, 3);
+INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (5, 4);
