@@ -1,7 +1,6 @@
 package com.db.grad.javaapi.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,18 +13,32 @@ public class UserT {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String NAME;
-    private String EMAIL;
-    private String PASSWORD;
+    private String name;
+    private String email;
+    private String password;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "usert_role",
-//            joinColumns = @JoinColumn(name = "usert_id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    public Set<Role> roles = new HashSet<>();
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name ="USERT_ROLE", joinColumns = @JoinColumn (name="USERT_ID"), inverseJoinColumns = @JoinColumn (name="ROLE_ID"))
+    private Set<Role> roles=new HashSet<>();
 
-    @Id
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "BOOK_USER",
+            joinColumns = @JoinColumn(name = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "BOOK_ID")
+    )
+    private Set<Bond> bonds = new HashSet<>();
+
+
+
+    public Set<Bond> getBonds() {
+        return bonds;
+    }
+
+//    public void setBonds(Set<Bond> bonds) {
+//        this.bonds = bonds;
+//    }
+
     @Column(name = "Id", nullable = false)
     public long getId() {
         return id;
@@ -37,47 +50,39 @@ public class UserT {
 
     @Column(name = "name", nullable = false)
     public String getName() {
-        return NAME;
+        return name;
     }
 
     public void setName(String NAME) {
-        this.NAME = NAME;
+        this.name = name;
     }
 
     @Column(name = "email", nullable = false)
     public String getEmail() {
-        return EMAIL;
+        return email;
     }
 
     public void setEmail(String EMAIL) {
-        this.EMAIL = EMAIL;
+        this.email = EMAIL;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
 
-//    @Column(name = "role", nullable = false)
-//    public Set<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-//    }
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     @Column(name = "Password", nullable = false)
     public String getPassword() {
-        return PASSWORD;
+        return password;
     }
 
     public void setPassword(String PASSWORD) {
-        this.PASSWORD = PASSWORD;
+        this.password = PASSWORD;
     }
 
-    public UserT( String NAME, String EMAIL, String PASSWORD, Set<Role> ROLES) {
-        this.NAME = NAME;
-        this.EMAIL = EMAIL;
-        this.PASSWORD = PASSWORD;
-      //  this.roles = ROLES;
-    }
 
     public UserT() {
     }
