@@ -46,18 +46,18 @@ public class Bond {
     }
 
     @Column(name = "TRADE_CURRENCY", nullable = false)
-    public String getTRADE_CURRENCY() {
+    public String getTradeCurrency() {
         return tradeCurrency;
     }
-    public void setTRADE_CURRENCY(String tradeCurrency) {
+    public void setTradeCurrency(String tradeCurrency) {
         this.tradeCurrency = tradeCurrency;
     }
 
     @Column(name = "FACE_VALUE", nullable = false)
-    public long getFACE_VALUE() {
+    public long getFaceValue() {
         return faceValue;
     }
-    public void setFACE_VALUE(long FACE_VALUE) {
+    public void setFaceValue(long faceValue) {
         this.faceValue = faceValue;
     }
 

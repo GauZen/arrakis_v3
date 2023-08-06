@@ -23,7 +23,6 @@ public class CounterParty {
     public Set<Trade> trades = new HashSet<>();
 
 
-
     public String getIssuerName() {
         return issuerName;
     }

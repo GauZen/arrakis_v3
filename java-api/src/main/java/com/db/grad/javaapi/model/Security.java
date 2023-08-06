@@ -26,18 +26,8 @@ public class Security {
     @Column(name = "ISIN")
     private int isin;
 
-
-
     @OneToMany(mappedBy = "security", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Trade> trades = new HashSet<>();
-    public Set<Trade> getTrades() {
-        return trades;
-    }
-
-    public void setTrades(Set<Trade> trades) {
-        this.trades = trades;
-    }
-
 
     public String getBondCurrency() {
         return bondCurrency;
@@ -103,4 +93,11 @@ public class Security {
         this.isin = isin;
     }
 
+    public Set<Trade> getTrades() {
+        return trades;
+    }
+
+    public void setTrades(Set<Trade> trades) {
+        this.trades = trades;
+    }
 }

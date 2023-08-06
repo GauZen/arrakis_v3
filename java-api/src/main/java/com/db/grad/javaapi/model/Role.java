@@ -14,19 +14,8 @@ public class Role {
     private int id;
     private String name;
 
-//    @ManyToMany(mappedBy = "roles")
-//    private Set<UserT> userTS = new HashSet<>();
-
-    public Role() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    @ManyToMany(mappedBy = "roles")
+    private Set<UserT> userTS = new HashSet<>();
 
     public String getName() {
         return name;
@@ -36,15 +25,13 @@ public class Role {
         this.name = name;
     }
 
-//    public Set<UserT> getUserTS() {
-//        return userTS;
-//    }
-//
-//    public void setUserTS(Set<UserT> userTS) {
-//        this.userTS = userTS;
-//    }
+    public Set<UserT> getUserTS() {
+        return userTS;
+    }
 
-    public Role(String name) {
-        this.name = name;
+    public void setUserTS(Set<UserT> userTS) {
+        this.userTS = userTS;
     }
 }
+
+

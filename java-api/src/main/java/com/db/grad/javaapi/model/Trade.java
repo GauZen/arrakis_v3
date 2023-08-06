@@ -35,13 +35,15 @@ public class Trade {
     @Column(name = "BOND_HOLDER")
     private String bondHolder;
 
-
     @ManyToOne
     private Bond bond;
 
     @ManyToOne
     @JoinColumn(name = "PARTYDETAILS")
     private CounterParty counterParty;
+    @ManyToOne
+    @JoinColumn(name = "SECURITY_ID")
+    private Security security;
 
     public Security getSecurity() {
         return security;
@@ -51,12 +53,6 @@ public class Trade {
         this.security = security;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "SECURITY_ID")
-    private Security security;
-
-
-   // @JoinColumn(name = "PARTYDETAILS_ID")
     public CounterParty getCounterParty() {
         return counterParty;
     }
@@ -65,7 +61,6 @@ public class Trade {
         this.counterParty = counterParty;
     }
 
-    //@Column(name = "BOOK_ID", nullable = false)
     public Bond getBond() {
         return bond;
     }
@@ -74,7 +69,6 @@ public class Trade {
         this.bond = bond;
     }
 
-//    @Id
     @Column(name = "Id", nullable = false)
     public long getId() {
         return id;

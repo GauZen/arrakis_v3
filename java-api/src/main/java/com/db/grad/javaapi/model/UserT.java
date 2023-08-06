@@ -29,15 +29,13 @@ public class UserT {
     )
     private Set<Bond> bonds = new HashSet<>();
 
-
-
     public Set<Bond> getBonds() {
         return bonds;
     }
 
-//    public void setBonds(Set<Bond> bonds) {
-//        this.bonds = bonds;
-//    }
+    public void setBonds(Set<Bond> bonds) {
+        this.bonds = bonds;
+    }
 
     @Column(name = "Id", nullable = false)
     public long getId() {
@@ -83,7 +81,4 @@ public class UserT {
         this.password = PASSWORD;
     }
 
-
-    public UserT() {
-    }
 }
