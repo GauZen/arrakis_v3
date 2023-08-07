@@ -29,6 +29,8 @@ public class Trade {
     private Date tradeDate;
     @Column(name = "UNIT_PRICE")
     private double unitPrice;
+    @Column(name = "TRADE_TYPE")
+    private String tradeType;
 
     @Column(name = "CUPON_PERCENT")
     private double cuponPercent;
@@ -150,5 +152,21 @@ public class Trade {
 
     public void setBondHolder(String bondHolder) {
         this.bondHolder = bondHolder;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getTradeType() {
+        return tradeType;
+    }
+
+    public void setTradeType(String tradeType) {
+        this.tradeType = tradeType;
     }
 }
