@@ -34,24 +34,23 @@ const BondDetail = (props) => {
         if (businessDayNr <= 6) {
             return (
                 <div>
-                    <p>show: {props.status.showBondStatus}</p>
                     <p id="blue-alias">ID: {props.info.id}</p>
                     <p className="green-class">Face Value: {props.info.face_value}</p>
                     <p className="green-class">Trade Currency: {props.info.trade_CURRENCY}</p>
                     <p className="green-class">CUSIP: {props.info.cusip}</p>
+                    <p className="green-class">ISIN: {props.info.isin}</p>
                     <p className="green-class">Bond Maturity Date: {props.info.bond_MATURITY_DATE}</p>
-
                 </div>
             )
         }
     } else {
         return (
             <div>
-                <p>show: {props.status.showBondStatus}</p>
                 <p id="blue-alias">ID: {props.info.id}</p>
                 <p className="green-class">Face Value: {props.info.face_value}</p>
                 <p className="green-class">Trade Currency: {props.info.trade_CURRENCY}</p>
                 <p className="green-class">CUSIP: {props.info.cusip}</p>
+                <p className="green-class">ISIN: {props.info.isin}</p>
                 <p className="green-class">Bond Maturity Date: {props.info.bond_MATURITY_DATE}</p>
 
             </div>
