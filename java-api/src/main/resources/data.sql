@@ -34,22 +34,16 @@ CUSIP, ISIN) VALUES
 ('GBP',	900, '2023-08-14', '123456bh0', 'A12356111');
 
 
---INSERT INTO BOND_DETAILS (TRADE_CURRENCY, FACE_VALUE, BOND_MATURITY_DATE,
---CUSIP, ISIN) VALUES ('USD', 1000, '2021-08-05', ' ' , 'XS1988387210');
-=======
-('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31');
-
-
 INSERT INTO role (name) VALUES ('USER');
 INSERT INTO role (name) VALUES ('CREATOR');
 INSERT INTO role (name) VALUES ('EDITOR');
 INSERT INTO role (name) VALUES ('ADMIN');
 
-INSERT INTO UserT (name, email, password) VALUES ('nilesh', 'nilesh@gmail.com','$2a$10$EX164tCWdXqdqGtzDQhIzeK4MOJPbXkZfl8kaibCnpJt86MvTsgYG');
-INSERT INTO UserT (name, email, password) VALUES ('mahesh', 'mahesh@gmail.com','$2a$10$2E5t2dQXROyfPE4cgnS71uIFfkwDIxRXkjW4CUaH8Bri/769F6omS');
-INSERT INTO UserT (name, email, password) VALUES ('suresh', 'suresh@gmail.com','$2a$10$HFAy2cExzPXLMAkP7o8S6esRtJxNr/0xWudwD/a.njWDMtZ3eoLD6');
-INSERT INTO UserT (name, email, password) VALUES ('ramesh', 'ramesh@gmail.com','$2a$10$2fv0qjzoOp911d.CwUuV4eJhygYyx0C/0WwUCIdSzy.oggx5BRULG');
-INSERT INTO UserT (name, email, password) VALUES ('admin',  'admin@gmail.com','$2a$10$3rMX8tdEW94NpkyUSIjO7uexpTTlyiaT6BWAFnNsnxQUu01/ewiaC');
+INSERT INTO UserT (name, email,role, password) VALUES ('nilesh', 'nilesh@gmail.com','1','$2a$10$EX164tCWdXqdqGtzDQhIzeK4MOJPbXkZfl8kaibCnpJt86MvTsgYG');
+INSERT INTO UserT (name, email, role,password) VALUES ('mahesh', 'mahesh@gmail.com','1','$2a$10$2E5t2dQXROyfPE4cgnS71uIFfkwDIxRXkjW4CUaH8Bri/769F6omS');
+INSERT INTO UserT (name, email,role, password) VALUES ('suresh', 'suresh@gmail.com','1','$2a$10$HFAy2cExzPXLMAkP7o8S6esRtJxNr/0xWudwD/a.njWDMtZ3eoLD6');
+INSERT INTO UserT (name, email, role,password) VALUES ('ramesh', 'ramesh@gmail.com','1','$2a$10$2fv0qjzoOp911d.CwUuV4eJhygYyx0C/0WwUCIdSzy.oggx5BRULG');
+INSERT INTO UserT (name, email, role,password) VALUES ('admin',  'admin@gmail.com','1','$2a$10$3rMX8tdEW94NpkyUSIjO7uexpTTlyiaT6BWAFnNsnxQUu01/ewiaC');
 
 INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (1, 1);
 INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (2, 2);
