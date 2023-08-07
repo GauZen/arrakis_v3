@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import AllBonds from "./components/bonds/AllBonds";
-//import { Pets } from "./components/pets/Pets";
 
-function App(){
-  return(
-    <AllBonds/>
+
+function App() {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange =() => {
+    setChecked(!checked);
+  };
+
+  return (
+    <div className="container" key="app">
+      <label htmlFor="checkout">
+        <input type="checkbox" name="checkbox" id="checkbox" 
+        checked= {checked}
+        onChange={handleChange}
+        />
+        Show Bonds by Maturity within the last and next 5 days
+      </label>
+      <AllBonds status={checked} key="app-allbonds" />
+    </div>
   );
-  //return <Pets />;
 }
 
-
 export default App;
+
