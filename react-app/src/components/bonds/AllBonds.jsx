@@ -57,11 +57,10 @@ const AllBonds = (props) => {
  */
 
     let showBondStatus = false;
-    if(props.status.showBondsByMaturity){
-        showBondStatus = props.status.showBondsByMaturity;
+    if(props.status){
+        showBondStatus = props.status;
     }
-    console.log("all bond",showBondStatus);
-    console.log("all bond",props.status.showBondsByMaturity)
+
 
     return (
         bonds.map(bond => (

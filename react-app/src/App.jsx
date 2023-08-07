@@ -3,19 +3,23 @@ import AllBonds from "./components/bonds/AllBonds";
 
 
 function App() {
-  const [showBondsByMaturity, setShowBondsByMaturity] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-  const handelBondsByMaturity = (event) => {
-    console.log(event);
-    setShowBondsByMaturity(!showBondsByMaturity);
-    console.log(showBondsByMaturity)
-  }
+  const handleChange =() => {
+    setChecked(!checked);
+  };
+
   return (
     <div className="container" key="app">
-      <button className='green-class' onClick={handelBondsByMaturity}>select</button>
-      <AllBonds status={showBondsByMaturity} key="app-allbonds"/>
+      <label htmlFor="checkout">
+        <input type="checkbox" name="checkbox" id="checkbox" 
+        checked= {checked}
+        onChange={handleChange}
+        />
+        Show Bonds by Maturity within the last and next 5 days
+      </label>
+      <AllBonds status={checked} key="app-allbonds" />
     </div>
-
   );
 }
 
