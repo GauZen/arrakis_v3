@@ -57,13 +57,77 @@ INSERT INTO BOOK_USER (BOOK_ID, USER_ID) VALUES (4, 2);
 INSERT INTO BOOK_USER (BOOK_ID, USER_ID) VALUES (4, 3);
 INSERT INTO BOOK_USER (BOOK_ID, USER_ID) VALUES (5, 4);
 
---INSERT INTO TRADE (BOOK_ID,  SECURITY_ID , PARTYDETAILS_ID, BOOK_NAME, TRADE_CURRENCY, QUANTITY,
---TRADE_SETTLEMENT_DATE, TRADE_STATUS, TRADE_TYPE, TRADE_DATE, UNIT_PRICE, COUPON_PERCENT,
---BOND_HOLDER) VALUES
---(1,1,1,'trading_book_1', 'USD', 50,  '2021-08-04', 'open', 'buy', '2021-05-13', 90.0, 4.37, 'AZ Holdings Inc' ),
---(2,2,2,'trading_book_1', 'GBP', 40,  '2021-08-04', 'open', 'sell','2021-02-04', 89.56, 4.37, 'AZ Holdings Inc'),
---(3,3,3, 'trading_book_2', 'USD', 1000,'2021-08-23', 'open', 'buy', '2021-05-13', 105.775,3.15, 'Acme co');
-----('trading_book_2', 'GBP', 900, '2021-09-10', 'open', 'sell','2021-02-04', 105.775,3.15, 'Acme Co');
+INSERT INTO PARTYDETAILS(ISSUER_NAME, TYPE, BOND_HOLDER) VALUES
+('BNPParibasIssu 4,37%  Microsoft Corp (USD)',    'CORP', 'AZ Holdings Inc'),
+('BNPParibasIssu 4,37% Microsoft Corp (USD)',     'CORP', 'AZ Holdings Inc'),
+('Airbus 3.15% USD',                              'CORP', 'Acme co'),
+('Airbus 3.15% USD',                              'CORP', 'Acme co'),
+('UBS Facebook (USD)',                            'CORP', 'Sovereign Investments'),
+('Airbus 3.15%  USD',                             'CORP',	'Astra Trading Ltd'),
+('UBS Facebook (USD)',                            'CORP',	'Sovereign Investments'),
+('Amazon',                                        'CORP',	'Muncipal Gov Of Orange County'),
+('Amazon',                                        'CORP',	'Muncipal Gov Of Orange County'),
+('HM Treasury United Kingdom',                    'GOVN',	'Goldman Sachs'),
+('HM Treasury United Kingdom',                    'GOVN',	'Goldman Sachs'),
+('HM Treasury United Kingdom',                    'GOVN',	'UBS'),
+('HM Treasury United Kingdom',                    'GOVN',	'UBS'),
+('HM Treasury United Kingdom',                    'GOVN',	'Barclays'),
+('HM Treasury United Kingdom',                    'GOVN',	'Barclays'),
+('HM Treasury United Kingdom',                    'GOVN',	'Barclays'),
+('HM Treasury United Kingdom',                    'GOVN',	'British Telecom'),
+('HM Treasury United Kingdom',                    'GOVN',	'Pension Holdings'),
+('HM Treasury United Kingdom',                    'GOVN',	'Pension Holdings'),
+('HM Treasury United Kingdom',                    'GOVN',	'Pension Holdings'),
+('First Norway Alpha Kl.IV',                      'SOVN', 'Zurich Pension fund 4'),
+('First Norway Alpha Kl.IV',                      'SOVN', 'Zurich Pension fund 4'),
+('First Norway Alpha Kl.IV',                      'SOVN', 'Zurich Pension fund 4'),
+('First Norway Alpha Kl.IV',                      'SOVN', 'Zurich Pension fund 4'),
+('TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S', 'SOVN',	'Zurich Pension fund 4'),
+('TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S', 'SOVN',	'Zurich Pension fund 4'),
+('TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S', 'SOVN',	'Zurich Pension fund 4'),
+('TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S', 'SOVN',	'Zurich Pension fund 4');
+
+
+
+
+INSERT INTO SECURITY(BOND_CURRENCY, coupon, BOND_MATURITY_DATE, type, status, FACE_VALUE, CUSIP, ISIN)
+VALUES ('USD', 1000, '2021-08-05', 'open', '         ', 'XS1988387210', 4.37, 4.37),
+       ('GBP', 1000, '2021-08-05', 'open', '         ', 'XS1988387210', 4.37, 4.37);
+--('GBP', 900,  '2021-08-05',	'123456780','USN0280EAR64', 'Airbus 3.15% USD',                          'open', 'buy', 3.15),
+--('USD',	900,  '2021-07-30',	'123456780','USN0280EAR64', 'Airbus 3.15% USD',                          'open','sell', 3.15),
+--('GBP',	900,  '2021-07-30',	'123456bh0','A12356111',    'UBS Facebook (USD)',                        'open','buy',  2.0 ),
+--('USD',	900,  '2021-09-30',	'123456780','USN0280EAR64', 'Airbus 3.15%  USD',                         'open','buy',  3.15),
+--('USD',	900,  '2021-07-30',	'123456bh0','A12356111',    'UBS Facebook (USD)',                        'open','sell', 2.0 ),
+--('GBP',	900,  '2021-08-03',	'AMZN 3.15 08/22/27 REGS',	'USU02320AG12', 'Amazon',                    'open','buy',  3.15),
+--('USD', 900,  '2021-08-03', 'AMZN 3.15 08/22/27 REGS',  'USU02320AG12', 'Amazon',                    'open','buy',  3.15),
+--('GBP',	900	, '2021-08-03',	'BDCHBW8',	'GB00B6460505', 'HM Treasury United Kingdom',                'open','buy',  0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460506', 'HM Treasury United Kingdom',                'open','sell', 0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460507', 'HM Treasury United Kingdom',                'open','buy',  0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460508', 'HM Treasury United Kingdom',                'open','sell', 0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460509', 'HM Treasury United Kingdom',                'open','buy',  0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460510', 'HM Treasury United Kingdom',                'open','buy',  0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460511', 'HM Treasury United Kingdom',                'open','sell', 0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460512', 'HM Treasury United Kingdom',                'open','buy',  0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460513', 'HM Treasury United Kingdom',                'open','buy',  0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460514', 'HM Treasury United Kingdom',                'open','buy',  0.75),
+--('GBP',	900,  '2021-08-09',	'BDCHBW8',	'GB00B6460515', 'HM Treasury United Kingdom',                'open','sell', 0.75),
+--('USD',	340,  '2030-12-22',	'87973RAA8','IE00B29LNP31', 'First Norway Alpha Kl.IV',                  'open','buy', 1.123),
+--('USD',	340,  '2030-12-22',	'87973RAA8','IE00B29LNP31', 'First Norway Alpha Kl.IV',                  'open','buy', 1.123),
+--('USD',	340,  '2030-12-22',	'87973RAA8','IE00B29LNP31', 'First Norway Alpha Kl.IV',                  'open','buy', 1.123),
+--('USD',	340,  '2030-12-22',	'87973RAA8','IE00B29LNP31', 'First Norway Alpha Kl.IV',                  'open','sell',1.123),
+--('GBP',	690,  '2021-08-09',	'BDCHBW8',	'US87973RAA86', 'TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S','open','buy',2.02),
+--('USD',	690,  '2021-08-06',	'87973RAA8','US87973RAA86', 'TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S','open','buy',2.02),
+--('USD',	690,  '2021-08-06',	'87973RAA8','US87973RAA86', 'TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S','open','buy',2.02),
+--('USD',	690,  '2021-08-06',	'87973RAA8','US87973RAA86', 'TEMASEK FINL I LTD GLOBAL MEDIUM TERM NTS BOOK ENTRY REG S','open','buy',2.02);
+
+
+INSERT INTO TRADE (BOOK_ID,  SECURITY_ID , PARTYDETAILS_ID, BOOK_NAME, TRADE_CURRENCY, QUANTITY,
+TRADE_SETTLEMENT_DATE, TRADE_STATUS, TRADE_TYPE, TRADE_DATE, UNIT_PRICE, COUPON_PERCENT,
+BOND_HOLDER) VALUES
+(1,1,1,'trading_book_1', 'USD', 50,  '2021-08-04', 'open', 'buy', '2021-05-13', 90.0, 4.37, 'AZ Holdings Inc' ),
+(2,2,2,'trading_book_1', 'GBP', 40,  '2021-08-04', 'open', 'sell','2021-02-04', 89.56, 4.37, 'AZ Holdings Inc'),
+(3,2,3, 'trading_book_2', 'USD', 1000,'2021-08-23', 'open', 'buy', '2021-05-13', 105.775,3.15, 'Acme co');
+
 --('Trading_book_3', 'USD', 50,  '2021-08-23', 'open', 'buy', '2021-05-13', 90.0,	2.0,  'Sovereign Investments'),
 --('trading_book_2', 'USD', 1000,'2021-08-23', 'open', 'buy', '2021-05-13', 105.775,3.15, 'Astra Trading Ltd'),
 --('Trading_book_2', 'USD', 50,  '2021-08-23', 'open', 'sell','2021-05-13', 90.0, 2.0,'Sovereign Investments'),
