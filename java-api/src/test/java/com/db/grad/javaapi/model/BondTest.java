@@ -8,8 +8,6 @@ class BondTest {
     @Before
     void setUp(){
         // create
-        bond = new Bond();
-        bond.setTRADE_CURRENCY("USD");
     }
 
 
