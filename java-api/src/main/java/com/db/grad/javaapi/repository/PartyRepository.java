@@ -1,7 +1,7 @@
 package com.db.grad.javaapi.repository;
 
 
-import com.db.grad.javaapi.model.Bond;
+import com.db.grad.javaapi.model.Party;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -9,10 +9,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BondsRepository extends JpaRepository<Bond, Long>
+public interface PartyRepository extends JpaRepository<Party, Long>
 {
-    @Query(nativeQuery = true, value = "select * from Bond where ISIN = :ISIN")
-    List<Bond> findByISIN(Bond ISIN);
-
-
+    @Query(nativeQuery = true, value = "select * from Party where TYPE = :TYPE")
+    List<Party> findByTYPE(Party TYPE);
 }

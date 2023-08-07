@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = " UserT")
+@Table(name = "UserT")
 public class UserT {
 
     @Id
@@ -21,10 +21,12 @@ public class UserT {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
+//    @OneToOne(mappedBy = "usert_id", cascade = CascadeType.ALL)
+//    private BookUser BookUser;
+
 
     @Column(name = "Name", nullable = false)
     public String getName() {
