@@ -1,101 +1,103 @@
 package com.db.grad.javaapi.model;
 
-
-
 import javax.persistence.*;
-import java.sql.Date;
-
-
+import java.util.*;
 
 @Entity
-@Table(name = "Security")
-public class Security
-{
+@Table(name = "security")
+public class Security {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @OneToOne(mappedBy = "SECURE_ID", cascade = CascadeType.ALL)
-    private Trade Trade;
-    private String TRADE_CURRENCY;
-    private long FACE_VALUE;
-    private Date BOND_MATURITY_DATE;
-    private String CUSIP;
+    @Column(name = "BOND_CURRENCY")
+    private String bondCurrency;
+    @Column(name = "coupon")
+    private float coupon;
+    @Column(name = "status")
+    private String status;
+    @Column(name = "type")
+    private String type;
+    @Column(name = "FACE_VALUE")
+    private String faceValue;
+    @Column(name = "BOND_MATURITY_DATE")
+    private Date bondMaturityDate;
+    @Column(name = "CUSIP")
+    private int cusip;
+    @Column(name = "ISIN")
+    private int isin;
 
-    private String ISIN;
-    private String ISSUER_NAME;
-    private String TRADE_STATUS;
-    private String TRADE_TYPE;
-    private Float COUPON_PERCENT;
+    @OneToMany(mappedBy = "security", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Trade> trades = new HashSet<>();
 
-
-
-
-    @Id
-    @Column(name = "Id", nullable = false)
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    @Column(name = "TRADE_CURRENCY", nullable = false)
-    public String getTRADE_CURRENCY() {
-        return TRADE_CURRENCY;
-    }
-    public void setTRADE_CURRENCY(String TRADE_CURRENCY) {
-        this.TRADE_CURRENCY = TRADE_CURRENCY;
+    public String getBondCurrency() {
+        return bondCurrency;
     }
 
-    @Column(name = "FACE_VALUE", nullable = false)
-    public long getFACE_VALUE() {
-        return FACE_VALUE;
-    }
-    public void setFACE_VALUE(long FACE_VALUE) {
-        this.FACE_VALUE = FACE_VALUE;
+    public void setBondCurrency(String bondCurrency) {
+        this.bondCurrency = bondCurrency;
     }
 
-    @Column(name="BOND_MATURITY_DATE")
-    public Date getBOND_MATURITY_DATE() {
-        return BOND_MATURITY_DATE;
+    public float getCoupon() {
+        return coupon;
     }
 
-    public void setBOND_MATURITY_DATE(Date BOND_MATURITY_DATE) {
-        this.BOND_MATURITY_DATE = BOND_MATURITY_DATE;
+    public void setCoupon(float coupon) {
+        this.coupon = coupon;
     }
 
-    @Column(name="CUSIP")
-    public String getCUSIP() {
-        return CUSIP;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCUSIP(String CUSIP) {
-        this.CUSIP = CUSIP;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    @Column(name="ISIN")
-    public String getISIN(String ISIN) {
-        return this.ISIN;
+    public String getType() {
+        return type;
     }
 
-    public void setISIN(String ISIN) {
-        this.ISIN = ISIN;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    @Column(name = "ISSUER_NAME")
-    public String getISSUER_NAME() {return ISSUER_NAME;
+    public String getFaceValue() {
+        return faceValue;
     }
-    public void setISSUER_NAME(String ISSUER_NAME) { this.ISSUER_NAME = ISSUER_NAME;}
 
-    @Column(name = "TRADE_TYPE")
-    public String getTRADE_TYPE(String TRADE_TYPE) {return TRADE_TYPE;}
-    public void setTRADE_TYPE(String TRADE_TYPE) { this.TRADE_TYPE = TRADE_TYPE;}
+    public void setFaceValue(String faceValue) {
+        this.faceValue = faceValue;
+    }
 
-    @Column(name = "TRADE_STATUS")
-    public String getTRADE_STATUS(String TRADE_STATUS) {return TRADE_STATUS;}
-    public void setTRADE_STATUS(String TRADE_STATUS) { this.TRADE_STATUS = TRADE_STATUS;}
+    public Date getBondMaturityDate() {
+        return bondMaturityDate;
+    }
 
-    @Column(name = "COUPON_PERCENT")
-    public Float getCOUPON_PERCENT(Float COUPON_PERCENT) {return COUPON_PERCENT;}
-    public void setCOUPON_PERCENT(Float COUPON_PERCENT) { this.COUPON_PERCENT = COUPON_PERCENT;}
+    public void setBondMaturityDate(Date bondMaturityDate) {
+        this.bondMaturityDate = bondMaturityDate;
+    }
+
+    public int getCusip() {
+        return cusip;
+    }
+
+    public void setCusip(int cusip) {
+        this.cusip = cusip;
+    }
+
+    public int getIsin() {
+        return isin;
+    }
+
+    public void setIsin(int isin) {
+        this.isin = isin;
+    }
+
+    public Set<Trade> getTrades() {
+        return trades;
+    }
+
+    public void setTrades(Set<Trade> trades) {
+        this.trades = trades;
+    }
 }

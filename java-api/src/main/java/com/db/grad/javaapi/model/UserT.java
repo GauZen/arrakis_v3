@@ -1,22 +1,42 @@
 package com.db.grad.javaapi.model;
 
 
+
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "UserT")
 public class UserT {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String NAME;
-    private String EMAIL;
-    private String ROLE;
-    private String PASSWORD;
+    private String name;
+    private String email;
+    private String password;
 
-    @Id
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name ="USERT_ROLE", joinColumns = @JoinColumn (name="USERT_ID"), inverseJoinColumns = @JoinColumn (name="ROLE_ID"))
+    private Set<Role> roles=new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "BOOK_USER",
+            joinColumns = @JoinColumn(name = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "BOOK_ID")
+    )
+    private Set<Bond> bonds = new HashSet<>();
+
+    public Set<Bond> getBonds() {
+        return bonds;
+    }
+
+    public void setBonds(Set<Bond> bonds) {
+        this.bonds = bonds;
+    }
+
     @Column(name = "Id", nullable = false)
     public long getId() {
         return id;
@@ -28,39 +48,39 @@ public class UserT {
 //    private BookUser BookUser;
 
 
-    @Column(name = "Name", nullable = false)
+    @Column(name = "name", nullable = false)
     public String getName() {
-        return NAME;
+        return name;
     }
 
     public void setName(String NAME) {
-        this.NAME = NAME;
+        this.name = name;
     }
 
-    @Column(name = "Email", nullable = false)
+    @Column(name = "email", nullable = false)
     public String getEmail() {
-        return EMAIL;
+        return email;
     }
 
     public void setEmail(String EMAIL) {
-        this.EMAIL = EMAIL;
-    }
-    @Column(name = "Role", nullable = false)
-    public String getRole() {
-        return ROLE;
+        this.email = EMAIL;
     }
 
-    public void setRole(String ROLE) {
-        this.ROLE = ROLE;
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     @Column(name = "Password", nullable = false)
     public String getPassword() {
-        return PASSWORD;
+        return password;
     }
 
     public void setPassword(String PASSWORD) {
-        this.PASSWORD = PASSWORD;
+        this.password = PASSWORD;
     }
 
 }

@@ -4,25 +4,39 @@ package com.db.grad.javaapi.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
-@Table(name = "bond_details")
-public class Bond
-{
+@Table(name = "BOND_DETAILS")
+public class Bond {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @OneToOne(mappedBy = "BOND_ID", cascade = CascadeType.ALL)
-    private Trade Trade;
-    private String TRADE_CURRENCY;
-    private long FACE_VALUE;
-    private Date BOND_MATURITY_DATE;
-    private String CUSIP;
 
-    private String ISIN;
+    @Column(name = "TRADE_CURRENCY", nullable = false)
+    private String tradeCurrency;
 
-    @Id
+    @Column(name = "FACE_VALUE", nullable = false)
+    private long faceValue;
+
+    @Column(name = "BOND_MATURITY_DATE")
+    private Date bondMaturityDate;
+
+    @Column(name = "CUSIP")
+    private String cusip;
+
+    @Column(name = "ISIN", nullable = false)
+    private String isin;
+
+    @ManyToMany(mappedBy = "bonds")
+    private Set<UserT> users = new HashSet<>();
+
+    @OneToMany(mappedBy = "bond", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Trade> trades = new HashSet<>();
+
+
     @Column(name = "Id", nullable = false)
     public long getId() {
         return id;
@@ -32,45 +46,45 @@ public class Bond
     }
 
     @Column(name = "TRADE_CURRENCY", nullable = false)
-    public String getTRADE_CURRENCY() {
-        return TRADE_CURRENCY;
+    public String getTradeCurrency() {
+        return tradeCurrency;
     }
-    public void setTRADE_CURRENCY(String TRADE_CURRENCY) {
-        this.TRADE_CURRENCY = TRADE_CURRENCY;
+    public void setTradeCurrency(String tradeCurrency) {
+        this.tradeCurrency = tradeCurrency;
     }
 
     @Column(name = "FACE_VALUE", nullable = false)
-    public long getFACE_VALUE() {
-        return FACE_VALUE;
+    public long getFaceValue() {
+        return faceValue;
     }
-    public void setFACE_VALUE(long FACE_VALUE) {
-        this.FACE_VALUE = FACE_VALUE;
+    public void setFaceValue(long faceValue) {
+        this.faceValue = faceValue;
     }
 
     @Column(name="BOND_MATURITY_DATE")
-    public Date getBOND_MATURITY_DATE() {
-        return BOND_MATURITY_DATE;
+    public Date getBondMaturityDate() {
+        return bondMaturityDate;
     }
 
-    public void setBOND_MATURITY_DATE(Date BOND_MATURITY_DATE) {
-        this.BOND_MATURITY_DATE = BOND_MATURITY_DATE;
+    public void setBondMaturityDate(Date bondMaturityDate) {
+        this.bondMaturityDate = bondMaturityDate;
     }
 
     @Column(name="CUSIP")
-    public String getCUSIP() {
-        return CUSIP;
+    public String getCusip() {
+        return cusip;
     }
 
-    public void setCUSIP(String CUSIP) {
-        this.CUSIP = CUSIP;
+    public void setCusip(String cusip) {
+        this.cusip = cusip;
     }
 
     @Column(name="ISIN")
-    public String getISIN() {
-        return ISIN;
+    public String getIsin() {
+        return isin;
     }
 
-    public void setISIN(String ISIN) {
-        this.ISIN = ISIN;
+    public void setIsin(String isin) {
+        this.isin = isin;
     }
 }
