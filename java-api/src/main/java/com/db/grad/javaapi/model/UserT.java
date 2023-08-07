@@ -2,6 +2,8 @@ package com.db.grad.javaapi.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +18,7 @@ public class UserT {
     private String name;
     private String email;
     private String password;
+
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name ="USERT_ROLE", joinColumns = @JoinColumn (name="USERT_ID"), inverseJoinColumns = @JoinColumn (name="ROLE_ID"))

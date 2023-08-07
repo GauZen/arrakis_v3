@@ -1,5 +1,7 @@
 package com.db.grad.javaapi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -27,6 +29,7 @@ public class Security {
     private int isin;
 
     @OneToMany(mappedBy = "security", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private Set<Trade> trades = new HashSet<>();
 
     public String getBondCurrency() {

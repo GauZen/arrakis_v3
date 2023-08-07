@@ -1,5 +1,8 @@
 package com.db.grad.javaapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -32,19 +35,21 @@ public class Trade {
     @Column(name = "TRADE_TYPE")
     private String tradeType;
 
-    @Column(name = "CUPON_PERCENT")
-    private double cuponPercent;
+    @Column(name = "COUPON_PERCENT")
+    private double couponPercent;
     @Column(name = "BOND_HOLDER")
     private String bondHolder;
 
     @ManyToOne
+    @JoinColumn(name = "BOOK_ID")
     private Bond bond;
 
     @ManyToOne
-    @JoinColumn(name = "PARTYDETAILS")
+    @JoinColumn(name = "PARTYDETAILS_ID")
     private CounterParty counterParty;
     @ManyToOne
     @JoinColumn(name = "SECURITY_ID")
+    @JsonBackReference
     private Security security;
 
     public Security getSecurity() {
@@ -138,12 +143,12 @@ public class Trade {
         this.unitPrice = unitPrice;
     }
     @Column(name = "CUPON_PERCENT", nullable = false)
-    public double getCuponPercent() {
-        return cuponPercent;
+    public double getCouponPercent() {
+        return couponPercent;
     }
 
-    public void setCuponPercent(double cuponPercent) {
-        this.cuponPercent = cuponPercent;
+    public void setCouponPercent(double cuponPercent) {
+        this.couponPercent = cuponPercent;
     }
     @Column(name = "BOND_HOLDER", nullable = false)
     public String getBondHolder() {

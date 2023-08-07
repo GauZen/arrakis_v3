@@ -1,5 +1,7 @@
 package com.db.grad.javaapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +21,8 @@ public class CounterParty {
     @Column(name = "TYPE")
     private String type;
 
+
+    @JsonIgnore
     @OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<Trade> trades = new HashSet<>();
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,11 @@ public class TradeController {
 
     @GetMapping("/trade")
     public List<Trade> getAllTrades(){
-        return tradeService.getAllTrades();
+        List<Trade> allTrades = tradeService.getAllTrades();
+        System.out.println("-----");
+        allTrades.stream().forEach(e -> System.out.println(e.getTradeCurrency()));
+
+        return allTrades;
     }
     @PostMapping("/trade")
     public Trade createTrade(@Valid  @RequestBody Trade trade){

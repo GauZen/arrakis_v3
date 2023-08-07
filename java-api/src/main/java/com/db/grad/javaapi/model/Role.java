@@ -1,5 +1,7 @@
 package com.db.grad.javaapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +16,7 @@ public class Role {
     private int id;
     private String name;
 
+    @JsonIgnoreProperties("roles")
     @ManyToMany(mappedBy = "roles")
     private Set<UserT> userTS = new HashSet<>();
 
