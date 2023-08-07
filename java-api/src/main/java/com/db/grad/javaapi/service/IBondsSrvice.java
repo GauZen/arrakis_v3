@@ -16,7 +16,7 @@ public interface IBondsSrvice
 
     public Bond getBondsById(long uniqueId);
 
-    public Bond getBondsByISIN(String bondISIN );
+//    public Bond getBondsByISIN(String bondISIN );
 
     public Bond updateBondsDetails(Bond bondToUpdate);
 }

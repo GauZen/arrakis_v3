@@ -4,7 +4,10 @@ import com.db.grad.javaapi.exception.ResourceNotFoundException;
 import com.db.grad.javaapi.model.Trade;
 import com.db.grad.javaapi.service.TradeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.http.ResponseEntity;
+=======
+>>>>>>> livbranch2
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -16,6 +19,7 @@ import java.util.Map;
 @RequestMapping("/api/v1")
 @CrossOrigin(origins = "http://localhost:3000")
 public class TradeController {
+<<<<<<< HEAD
     private TradeHandler TradeService;
 
     @Autowired
@@ -56,6 +60,31 @@ public class TradeController {
         boolean removed = TradeService.removeTrade(id);
 
         Map < String, Boolean > response = new HashMap <>();
+=======
+
+    private TradeHandler tradeService;
+
+    @Autowired
+    public TradeController(TradeHandler th){
+        tradeService = th;
+    }
+
+    @GetMapping("/trade")
+    public List<Trade> getAllTrades(){
+        return tradeService.getAllTrades();
+    }
+    @PostMapping("/trade")
+    public Trade createTrade(@Valid  @RequestBody Trade trade){
+        return tradeService.addTrade(trade);
+    }
+
+    @DeleteMapping("/trade/{id}")
+    public Map< String, Boolean > deleteTrade(@PathVariable(value = "id") Long id)
+            throws ResourceNotFoundException {
+        boolean removed = tradeService.removeTrade(id);
+
+        Map < String, Boolean > response = new HashMap<>();
+>>>>>>> livbranch2
         if( removed )
             response.put("deleted", Boolean.TRUE);
         else
@@ -63,4 +92,9 @@ public class TradeController {
 
         return response;
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> livbranch2
 }

@@ -66,8 +66,8 @@ public class Bond
     }
 
     @Column(name="ISIN")
-    public String getISIN(String ISIN) {
-        return this.ISIN;
+    public String getISIN() {
+        return ISIN;
     }
 
     public void setISIN(String ISIN) {

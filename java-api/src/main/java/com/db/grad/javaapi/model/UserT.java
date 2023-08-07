@@ -11,10 +11,10 @@ public class UserT {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
-    private String email;
-    private String role;
-    private String password;
+    private String NAME;
+    private String EMAIL;
+    private String ROLE;
+    private String PASSWORD;
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -30,37 +30,37 @@ public class UserT {
 
     @Column(name = "Name", nullable = false)
     public String getName() {
-        return name;
+        return NAME;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String NAME) {
+        this.NAME = NAME;
     }
 
     @Column(name = "Email", nullable = false)
     public String getEmail() {
-        return email;
+        return EMAIL;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String EMAIL) {
+        this.EMAIL = EMAIL;
     }
     @Column(name = "Role", nullable = false)
     public String getRole() {
-        return role;
+        return ROLE;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRole(String ROLE) {
+        this.ROLE = ROLE;
     }
 
     @Column(name = "Password", nullable = false)
     public String getPassword() {
-        return password;
+        return PASSWORD;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String PASSWORD) {
+        this.PASSWORD = PASSWORD;
     }
 
 }
