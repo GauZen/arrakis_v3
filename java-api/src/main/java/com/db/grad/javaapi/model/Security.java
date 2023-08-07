@@ -1,74 +1,61 @@
 package com.db.grad.javaapi.model;
 
+
+
 import javax.persistence.*;
-import java.util.*;
+import java.sql.Date;
+
+
 
 @Entity
-@Table(name = "security")
-public class Security {
+@Table(name = "Security")
+public class Security
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "BOND_CURRENCY")
-    private String bondCurrency;
-    @Column(name = "coupon")
-    private float coupon;
-    @Column(name = "status")
-    private String status;
-    @Column(name = "type")
-    private String type;
-    @Column(name = "FACE_VALUE")
-    private String faceValue;
-    @Column(name = "BOND_MATURITY_DATE")
+    @OneToOne(mappedBy = "SECURE_ID", cascade = CascadeType.ALL)
+    private Trade Trade;
+    private String tradeCurrency;
+    private long faceValue;
     private Date bondMaturityDate;
-    @Column(name = "CUSIP")
-    private int cusip;
-    @Column(name = "ISIN")
-    private int isin;
+    private String cusip;
 
-    @OneToMany(mappedBy = "security", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<Trade> trades = new HashSet<>();
+    private String isin;
+    private String issuerName;
+    private String tradeStatus;
+    private String tradeType;
+    private Float couponPercent;
 
-    public String getBondCurrency() {
-        return bondCurrency;
+
+
+
+    @Id
+    @Column(name = "Id", nullable = false)
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setBondCurrency(String bondCurrency) {
-        this.bondCurrency = bondCurrency;
+    @Column(name = "TRADE_CURRENCY", nullable = false)
+    public String getTradeCurrency() {
+        return tradeCurrency;
+    }
+    public void setTradeCurrency(String tradeCurrency) {
+        this.tradeCurrency= tradeCurrency;
     }
 
-    public float getCoupon() {
-        return coupon;
-    }
-
-    public void setCoupon(float coupon) {
-        this.coupon = coupon;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getFaceValue() {
+    @Column(name = "FACE_VALUE", nullable = false)
+    public long getFaceValue() {
         return faceValue;
     }
-
-    public void setFaceValue(String faceValue) {
+    public void setFACE_VALUE(long FACE_VALUE) {
         this.faceValue = faceValue;
     }
 
+    @Column(name="BOND_MATURITY_DATE")
     public Date getBondMaturityDate() {
         return bondMaturityDate;
     }
@@ -77,27 +64,38 @@ public class Security {
         this.bondMaturityDate = bondMaturityDate;
     }
 
-    public int getCusip() {
+    @Column(name="CUSIP")
+    public String getCusip() {
         return cusip;
     }
 
-    public void setCusip(int cusip) {
+    public void setCusip(String cusip) {
         this.cusip = cusip;
     }
 
-    public int getIsin() {
+    @Column(name="ISIN")
+    public String getIsin(String isin) {
         return isin;
     }
 
-    public void setIsin(int isin) {
+    public void setIsin(String isin) {
         this.isin = isin;
     }
 
-    public Set<Trade> getTrades() {
-        return trades;
+    @Column(name = "ISSUER_NAME")
+    public String getIssuerName() {return issuerName;
     }
+    public void setIssuerName(String issuerName) { this.issuerName = issuerName;}
 
-    public void setTrades(Set<Trade> trades) {
-        this.trades = trades;
-    }
+    @Column(name = "TRADE_TYPE")
+    public String getTradeType() {return tradeType;}
+    public void setTradeType(String tradeType) { this.tradeType = tradeType;}
+
+    @Column(name = "TRADE_STATUS")
+    public String getTradeStatus(String tradeStatus) {return tradeStatus;}
+    public void setTradeStatus(String tradeStatus) { this.tradeStatus= tradeStatus;}
+
+    @Column(name = "COUPON_PERCENT")
+    public Float getCouponPercent(Float couponPercent) {return couponPercent;}
+    public void setCouponPercent(Float couponPercent) { this.couponPercent= couponPercent;}
 }

@@ -1,6 +1,5 @@
 package com.db.grad.javaapi.service;
 
-import ch.qos.logback.core.joran.spi.ElementPath;
 import com.db.grad.javaapi.model.Party;
 import com.db.grad.javaapi.repository.PartyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,11 +59,16 @@ public class PartyHandler implements PartyService
     }
 
     @Override
-    public Party getPartyByTYPE(String TYPE )
+    public Party getPartyBytype(String Partytype) {
+        return null;
+    }
+
+    @Override
+    public Party getPartyByType(String type)
     {
         Party PartyToFind = new Party();
-        PartyToFind.getTYPE(TYPE);
-        List<Party> Party = itsPartyRepo.findByTYPE(PartyToFind);
+        PartyToFind.getType(type);
+        List<Party> Party = itsPartyRepo.findBytype(PartyToFind);
         Party result = null;
 
         if( Party.size() == 1)

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface SecurityRepository extends JpaRepository<Security, Long>
 {
-    @Query(nativeQuery = true, value = "select * from Security where TRADE_TYPE = :TRADE_TYPE")
-    List<Security> findByTRADE_TYPE(Security TRADE_TYPE);
+    @Query(nativeQuery = true, value = "select * from Security where tradeType = :tradeType")
+    List<Security> findByTradetype(Security Tradetype);
 }
 

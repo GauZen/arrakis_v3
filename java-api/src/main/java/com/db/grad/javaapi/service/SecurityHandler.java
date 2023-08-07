@@ -1,6 +1,5 @@
 package com.db.grad.javaapi.service;
 
-import ch.qos.logback.core.joran.spi.ElementPath;
 import com.db.grad.javaapi.model.Security;
 import com.db.grad.javaapi.repository.SecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,11 +59,16 @@ public class SecurityHandler implements SecurityService
     }
 
     @Override
-    public Security getSecurityByTRADE_TYPE(String TRADE_TYPE )
+    public Security getSecurityByTradetype(String Tradetype) {
+        return null;
+    }
+
+    @Override
+    public Security getSecurityBytradetype(String tradeType )
     {
         Security SecurityToFind = new Security();
-        SecurityToFind.getTRADE_TYPE(TRADE_TYPE);
-        List<Security> Security = itsSecurityRepo.findByTRADE_TYPE(SecurityToFind);
+        SecurityToFind.getTradeType();
+        List<Security> Security = itsSecurityRepo.findByTradetype(SecurityToFind);
         Security result = null;
 
         if( Security.size() == 1)

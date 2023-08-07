@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface PartyRepository extends JpaRepository<Party, Long>
 {
-    @Query(nativeQuery = true, value = "select * from Party where TYPE = :TYPE")
-    List<Party> findByTYPE(Party TYPE);
+    @Query(nativeQuery = true, value = "select * from Party where type = :type")
+    List<Party> findBytype(Party type);
 }

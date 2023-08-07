@@ -2,9 +2,12 @@ package com.db.grad.javaapi.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -30,12 +33,11 @@ public class Bond {
     @Column(name = "ISIN", nullable = false)
     private String isin;
 
-    @ManyToMany(mappedBy = "bonds")
-    private Set<UserT> users = new HashSet<>();
+//    @ManyToMany(mappedBy = "bonds", cascade = CascadeType.ALL)
+//    private Set<UserT> users = new HashSet<>();
 
-    @OneToMany(mappedBy = "bond", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Trade> trades = new HashSet<>();
-
+//    @ManyToMany(mappedBy = "bond")
+//    private List<Trade> Trade;
 
     @Column(name = "Id", nullable = false)
     public long getId() {

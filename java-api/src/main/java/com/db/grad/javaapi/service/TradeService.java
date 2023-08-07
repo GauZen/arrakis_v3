@@ -5,7 +5,7 @@ import com.db.grad.javaapi.model.Trade;
 import java.util.List;
 
 public interface TradeService {
-<<<<<<< HEAD
+
     List<Trade> getAllTrade();
 
     Trade addTrade(Trade theTrade);
@@ -16,18 +16,9 @@ public interface TradeService {
 
     Trade getTradeById(long uniqueId);
 
-    Trade getTradeByTRADE_DATE(String TRADE_DATE);
+    Trade getTradeByTradeDate(String tradeDate);
 
     Trade updateTrade(Trade TradeToUpdate);
-=======
 
 
-    public List<Trade> getAllTrades();
-
-    public Trade addTrade(Trade theTrade);
-
-    public boolean removeTrade(long uniqueId);
-
-
->>>>>>> livbranch2
 }

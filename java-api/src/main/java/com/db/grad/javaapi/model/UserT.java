@@ -21,21 +21,21 @@ public class UserT {
     @JoinTable(name ="USERT_ROLE", joinColumns = @JoinColumn (name="USERT_ID"), inverseJoinColumns = @JoinColumn (name="ROLE_ID"))
     private Set<Role> roles=new HashSet<>();
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "BOOK_USER",
-            joinColumns = @JoinColumn(name = "USER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "BOOK_ID")
-    )
-    private Set<Bond> bonds = new HashSet<>();
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "BOOK_USER",
+//            joinColumns = @JoinColumn(name = "USER_ID"),
+//            inverseJoinColumns = @JoinColumn(name = "BOOK_ID")
+//    )
+//    private Set<Bond> bonds = new HashSet<>();
 
-    public Set<Bond> getBonds() {
-        return bonds;
-    }
-
-    public void setBonds(Set<Bond> bonds) {
-        this.bonds = bonds;
-    }
+//    public Set<Bond> getBonds() {
+//        return bonds;
+//    }
+//
+//    public void setBonds(Set<Bond> bonds) {
+//        this.bonds = bonds;
+//    }
 
     @Column(name = "Id", nullable = false)
     public long getId() {

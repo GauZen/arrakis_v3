@@ -16,7 +16,9 @@ public interface PartyService
 
     public Party getPartyById(long uniqueId);
 
-    public Party getPartyByTYPE(String PartyTYPE );
+    public Party getPartyBytype(String Partytype );
+
+    Party getPartyByType(String type);
 
     public Party updatePartyDetails(Party PartyToUpdate);
 }

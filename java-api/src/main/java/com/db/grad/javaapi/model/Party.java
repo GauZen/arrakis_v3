@@ -1,6 +1,7 @@
 package com.db.grad.javaapi.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Partydetails")
@@ -10,9 +11,9 @@ public class Party {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private long id;
-    private String ISSUER_NAME;
-    private String TYPE;
-    private String BOND_HOLDER;
+    private String issuerName;
+    private String type;
+    private String bondHolder;
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -23,22 +24,22 @@ public class Party {
         this.id = id;
     }
 
-    @OneToOne(mappedBy = "PARTY_ID", cascade = CascadeType.ALL)
-    private Trade Trade;
+//    @OneToOne(mappedBy = "PARTY_ID", cascade = CascadeType.ALL)
+//    private Set<Trade> Trade;
 
     @Column(name = "ISSUER_NAME")
-    public String getISSUER_NAME() {return ISSUER_NAME;
+    public String getIssuerName() {return issuerName;
     }
-    public void setISSUER_NAME(String ISSUER_NAME) { this.ISSUER_NAME = ISSUER_NAME;}
+    public void setIssuerName(String issuerName) { this.issuerName =issuerName;}
 
 
     @Column(name = "TYPE")
-    public String getTYPE(String TYPE) {return TYPE;}
-    public void setTYPE(String TYPE) { this.TYPE = TYPE;}
+    public String getType(String type) {return type;}
+    public void setType(String type) { this.type = type;}
 
     @Column(name = "BOND_HOLDER")
-    public String getBOND_HOLDER() {return BOND_HOLDER;}
-    public void setBOND_HOLDER(String BOND_HOLDER){this.BOND_HOLDER = BOND_HOLDER;}
+    public String getBondHolder() {return bondHolder;}
+    public void setBondHolder(String bondHolder){this.bondHolder = bondHolder;}
 
 
 }

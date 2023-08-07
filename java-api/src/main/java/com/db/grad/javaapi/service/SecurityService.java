@@ -16,7 +16,9 @@ public interface SecurityService
 
     public Security getSecurityById(long uniqueId);
 
-    public Security getSecurityByTRADE_TYPE(String TRADE_TYPE );
+    public Security getSecurityByTradetype(String Tradetype );
+
+    Security getSecurityBytradetype(String tradeType);
 
     public Security updateSecurity(Security SecurityToUpdate);
 }
