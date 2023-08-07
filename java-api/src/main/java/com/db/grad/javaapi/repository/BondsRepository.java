@@ -12,4 +12,7 @@ public interface BondsRepository extends JpaRepository<Bond, Long>
 {
     @Query(nativeQuery = true, value = "select * from bonds where ISIN = :ISIN")
     List<Bond> findByISIN(Bond ISIN);
+
+    @Override
+    void delete(Bond entity);
 }

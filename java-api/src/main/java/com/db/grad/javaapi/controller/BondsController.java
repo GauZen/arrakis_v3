@@ -31,7 +31,7 @@ public class BondsController {
 
     @GetMapping("/bonds/{id}")
     public ResponseEntity <Bond> getBondsById(@PathVariable(value = "id") Long id)
-    throws ResourceNotFoundException {
+            throws ResourceNotFoundException {
         Bond bond = bondsService.getBondsById(id);
         return ResponseEntity.ok().body(bond);
     }
@@ -43,7 +43,7 @@ public class BondsController {
 
     @PutMapping("/bonds/{id}")
     public ResponseEntity <Bond> updateBonds(@PathVariable(value = "id") Long id,
-                                           @Valid @RequestBody Bond bondDetails) throws ResourceNotFoundException {
+                                             @Valid @RequestBody Bond bondDetails) throws ResourceNotFoundException {
 
         final Bond updatedBonds = bondsService.updateBondsDetails(bondDetails);
         return ResponseEntity.ok(updatedBonds);
@@ -51,8 +51,8 @@ public class BondsController {
 
     @DeleteMapping("/bonds/{id}")
     public Map < String, Boolean > deleteBond(@PathVariable(value = "id") Long id)
-    throws ResourceNotFoundException {
-    	boolean removed = bondsService.removeBond(id);
+            throws ResourceNotFoundException {
+        boolean removed = bondsService.removeBond(id);
 
         Map < String, Boolean > response = new HashMap <>();
         if( removed )
