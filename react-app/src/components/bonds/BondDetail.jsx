@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Card from 'react-bootstrap/Card';
 
 const BondDetail = (props) => {
     let newDate = new Date();
@@ -30,30 +31,68 @@ const BondDetail = (props) => {
 
     let businessDayNr = getBusinessDayCount(startDate, endDate);
 
+    let issuerNAME = "not found";
+    let bondHOLDER = "not found";
+    let bookNAME = "not found";
+    
+
+    for(let i=0; i<props.securities.length -1; i++){
+        if(props.securities[i].cusip === props.info.cusip){
+            issuerNAME = props.securities[i].issuer_NAME;
+        }
+
+        if(props.securities[i].cusip === "         "){
+            issuerNAME = "BNPParibasIssu 4,37% Microsoft Corp (USD)";
+        }
+        
+    }
+
+    for(let i=0; i< props.parties.length -1 ; i++){
+        if(props.parties[i].issuer_NAME === issuerNAME){
+            bondHOLDER = props.parties[i].bond_HOLDER;
+        }
+    }
+
+    for(let i=0; i< props.trades.length -1; i++){
+        if(props.trades[i].bond_HOLDER === bondHOLDER){
+            bookNAME=props.trades[i].book_NAME;
+        }
+    }
+
+
     if (props.status) {
         if (businessDayNr <= 6) {
             return (
-                <div>
-                    <p id="blue-alias">ID: {props.info.id}</p>
-                    <p className="green-class">Face Value: {props.info.face_value}</p>
-                    <p className="green-class">Trade Currency: {props.info.trade_CURRENCY}</p>
-                    <p className="green-class">CUSIP: {props.info.cusip}</p>
-                    <p className="green-class">ISIN: {props.info.isin}</p>
-                    <p className="green-class">Bond Maturity Date: {props.info.bond_MATURITY_DATE}</p>
-                </div>
+                <Card>
+                    <Card.Body>
+                        <Card.Title>ID: {props.info.id}</Card.Title>
+                        <Card.Text>Face Value: {props.info.face_VALUE}</Card.Text>
+                        <Card.Text>Trade Currency: {props.info.trade_CURRENCY}</Card.Text>
+                        <Card.Text>CUSIP: {props.info.cusip}</Card.Text>
+                        <Card.Text>ISIN: {props.info.isin}</Card.Text>
+                        <Card.Text>Issuer Name: {issuerNAME}</Card.Text>
+                        <Card.Text>Bond Holder: {bondHOLDER}</Card.Text>
+                        <Card.Text>Book Name: {bookNAME}</Card.Text>
+                        <Card.Text>Bond Maturity Date: {props.info.bond_MATURITY_DATE}</Card.Text>
+                    </Card.Body>
+                </Card>
             )
         }
     } else {
         return (
-            <div>
-                <p id="blue-alias">ID: {props.info.id}</p>
-                <p className="green-class">Face Value: {props.info.face_value}</p>
-                <p className="green-class">Trade Currency: {props.info.trade_CURRENCY}</p>
-                <p className="green-class">CUSIP: {props.info.cusip}</p>
-                <p className="green-class">ISIN: {props.info.isin}</p>
-                <p className="green-class">Bond Maturity Date: {props.info.bond_MATURITY_DATE}</p>
-
-            </div>
+            <Card>
+                <Card.Body>
+                    <Card.Title>ID: {props.info.id}</Card.Title>
+                    <Card.Text>Face Value: {props.info.face_VALUE}</Card.Text>
+                    <Card.Text>Trade Currency: {props.info.trade_CURRENCY}</Card.Text>
+                    <Card.Text>CUSIP: {props.info.cusip}</Card.Text>
+                    <Card.Text>ISIN: {props.info.isin}</Card.Text>
+                    <Card.Text>Issuer Name: {issuerNAME}</Card.Text>
+                    <Card.Text>Bond Holder: {bondHOLDER}</Card.Text>
+                    <Card.Text>Book Name: {bookNAME}</Card.Text>
+                    <Card.Text>Bond Maturity Date: {props.info.bond_MATURITY_DATE}</Card.Text>
+                </Card.Body>
+            </Card>
         )
 
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import BondDetail from './BondDetail';
 import { useState, useEffect } from 'react';
 import { getAllBonds } from '../../services/BondServices';
+import Row from 'react-bootstrap/Row';
 
 const AllBonds = (props) => {
     const [bonds, setBonds] = useState([]);
@@ -23,19 +24,20 @@ const AllBonds = (props) => {
 
 
     let showBondStatus = false;
-    if(props.status){
+    if (props.status) {
         showBondStatus = props.status;
     }
 
 
     return (
-        bonds.map(bond => (
-            <div className='container' key={bond.id.toString()} >
-                <BondDetail info={bond} status={showBondStatus} />
-            </div>
+        <Row>
+            {bonds.map(bond => (
+                <div className='container' key={bond.id.toString()} >
+                    <BondDetail info={bond} status={showBondStatus} parties={props.parties} trades={props.trades} securities={props.securities} />
+                </div>
 
-        ))
-
+            ))}
+        </Row>
     )
 }
 

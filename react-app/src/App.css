@@ -2,6 +2,12 @@
   background-color: white;
 }
 
+.container {
+  max-width: 300px;
+  padding: 15px;
+}
+
+
 .Auth-form-container {
   display: flex;
   justify-content: center;
