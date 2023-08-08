@@ -58,20 +58,6 @@ public class BondHandler implements IBondsSrvice
         return itsBondsRepo.findById(uniqueId).get();
     }
 
-//    @Override
-//    public Bond getBondsByISIN(String ISIN )
-//    {
-//        Bond bondToFind = new Bond();
-//        bondToFind.getISIN(ISIN ?);
-//        List<Bond> bonds = itsBondsRepo.findByISIN(bondToFind);
-//        Bond result = null;
-//
-//        if( bonds.size() == 1)
-//            result = bonds.get(0);
-//
-//        return result;
-//    }
-
     @Override
     public Bond updateBondsDetails(Bond bondToUpdate)
     {

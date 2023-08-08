@@ -1,6 +1,3 @@
---INSERT INTO BOND_DETAILS (TRADE_CURRENCY, FACE_VALUE, BOND_MATURITY_DATE,
---CUSIP, ISIN) VALUES ('USD', 1000, '2021-08-05', ' ' , 'XS1988387210');
-
 INSERT INTO BOND_DETAILS (TRADE_CURRENCY, FACE_VALUE, BOND_MATURITY_DATE,
 CUSIP, ISIN) VALUES
 ('USD', 1000, '2021-08-05', '  ', 'XS1988387210'),
@@ -29,7 +26,12 @@ CUSIP, ISIN) VALUES
 ('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31'),
 ('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31'),
 ('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31'),
-('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31');
+('USD',	340, '2030-12-22', '87973RAA8', 'IE00B29LNP31'),
+('USD', 1000, '2023-07-28', '  ', 'XS1988387210'),
+('GBP', 1000, '2023-08-11', '  ', 'XS1988387210'),
+('GBP', 900, '2023-08-04', '123456780', 'USN0280EAR64'),
+('USD',	900, '2023-07-27', '123456780', 'USN0280EAR64'),
+('GBP',	900, '2023-08-14', '123456bh0', 'A12356111');
 
 
 INSERT INTO role (name) VALUES ('USER');
@@ -37,11 +39,13 @@ INSERT INTO role (name) VALUES ('CREATOR');
 INSERT INTO role (name) VALUES ('EDITOR');
 INSERT INTO role (name) VALUES ('ADMIN');
 
+
 INSERT INTO UserT (name, email, password) VALUES ('ali', 'ali@gmail.com','$2a$10$qCwbNw8iMnCEwEXAWM17Sus0Rp6qcjW31HRV9zPsqnx1ILbmBtzXq');
 INSERT INTO UserT (name, email, password) VALUES ('cen', 'cen@gmail.com','$2a$10$Ee0OBMXCjL3S7Wj.kvdDHuBDjourkkTne6DpLZi2UkZ5/Hd5aFIji');
 INSERT INTO UserT (name, email, password) VALUES ('vinod', 'vinod@gmail.com','$2a$10$Ee0OBMXCjL3S7Wj.kvdDHuBDjourkkTne6DpLZi2UkZ5/Hd5aFIji');
 INSERT INTO UserT (name, email, password) VALUES ('liviu', 'liviu@gmail.com','$2a$10$F0/uIBMjhfkdwEzuMCIf2O5aZAlz1tU/1mRot7C/3vPTSLjQSraee');
 INSERT INTO UserT (name, email, password) VALUES ('admin',  'admin@gmail.com','$2a$10$nwg11Cr/f2VZvw1vWeXl1eLMyJD8jBybcAJBMi0Ti8ipetY4kGHT2');
+
 
 INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (1, 1);
 INSERT INTO USERT_ROLE (USERT_ID, ROLE_ID) VALUES (2, 2);
@@ -152,3 +156,4 @@ BOND_HOLDER) VALUES
 --('Trading_book_4', 'USD', 300, '2021-08-23','open',	'buy', '2012-08-23', 98.76,1.123,'Zurich Pension fund 4'),
 --('Trading_book_4', 'USD', 300, '2021-09-27','open',	'buy', '2013-02-04', 98.76,1.123,'Zurich Pension fund 4'),
 --('Trading_book_4', 'USD', 300, '2021-08-23','open',	'sell','2015-08-23', 98.76,1.123,'Zurich Pension fund 4');
+

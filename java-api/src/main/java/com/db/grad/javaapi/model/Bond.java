@@ -82,6 +82,7 @@ public class Bond {
     @Column(name="ISIN")
     public String getIsin() {
         return isin;
+
     }
 
     public void setIsin(String isin) {
